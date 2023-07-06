@@ -7,7 +7,7 @@ exports.findUser = function (req, res) {
         if (user !== null) {
             //res.json(user);
             // res.redirect('/landing');
-            res.status(200).json({error:false,data:user});
+            res.status(200).json({error:false,message:'Login Successfull'});
         } else {
             res.status(404).json({error:true,message:"user data not found"});
         }
