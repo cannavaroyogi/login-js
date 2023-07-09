@@ -25,4 +25,21 @@ Product.findAll = function (result) {
     });
 };
 
+Product.findNameProduct = function (name, result) {
+    dbConn.query("select * from products where name_product like ?" , ["%" + name + "%"], function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+        }
+
+        if (res.length === 0) {
+            console.log("Error: no data found");
+            result(err, null);
+        } else {
+            result(null, res);
+        }
+
+    });
+};
+
 module.exports = Product;
